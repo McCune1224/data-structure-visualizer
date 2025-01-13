@@ -16,6 +16,15 @@ public partial class Main : Node2D
         {
             GD.Print(item);
         }
+
+
+        UndirectedGraph graph = new(3);
+        GD.Print("Created graph");
+        graph.AddEdge(2, 1);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(0, 2);
+        GD.Print("Added");
+        GD.Print(graph.ToString());
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

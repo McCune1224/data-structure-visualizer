@@ -1,101 +1,49 @@
-﻿
 using System.Collections;
-using System.Collections.Generic;
-
+using Godot;
 namespace Graph;
 
-internal class Node<Value>
+
+class UndirectedGraph
 {
-    public Value Item;
-    public Node<Value> Next;
-    public Node(Value val)
+    public int _v { get; private set; }
+    public int _e { get; private set; } = 0;
+    private Bag<int>[] adj;
+
+    public UndirectedGraph(int v)
     {
-        Item = val;
-    }
-    public Node(Value val, Node<Value> next)
-    {
-        Item = val;
-        Next = next;
-    }
-    public Node()
-    {
-
-    }
-}
-
-public class Bag<Item> : IEnumerable<Item>
-{
-
-    public Bag()
-    {
-
-    }
-
-    private Node<Item> _head;
-    private int _count = 0;
-
-    public void Add(Item item)
-    {
-        Node<Item> oldHead = _head;
-        _head = new Node<Item>();
-        _head.Item = item;
-        _head.Next = oldHead;
-        _count++;
-    }
-
-    public bool IsEmpty() { return _head == null; }
-    public int GetSize()
-    {
-        int tally = 0;
-        Node<Item> current = _head;
-        while (current != null)
+        _v = v;
+        adj = new Bag<int>[v];
+        GD.Print(adj.Length);
+        for (int i = 0; i < v; i++)
         {
-            tally++;
-            current = current.Next;
+            adj[i] = new Bag<int>();
         }
-        return tally;
     }
 
-    public IEnumerator<Item> GetEnumerator()
+    public void AddEdge(int v, int w)
     {
-        return new ListIterator(_head);
+        adj[v].Add(w);
+        adj[w].Add(v);
+        _e++;
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    public IEnumerator GetEnumerator(int v)
     {
-        return new ListIterator(_head);
+        return adj[v].GetEnumerator();
     }
 
-    internal class ListIterator : IEnumerator<Item>
+    public override string ToString()
     {
-        private Node<Item> _current;
-        private Node<Item> _first;
-
-        public ListIterator(Node<Item> firstIterableItem)
+        string s = _v + " verticies, " + _e + " edge(s)\n";
+        for (int i = 0; i < _v; i++)
         {
-            _first = firstIterableItem;
-            _current = null;
+            s += i + ": ";
+            foreach (int w in adj[i])
+            {
+                s += w + " ";
+            }
+            s += "\n";
         }
-
-        public Item Current => _current.Item;
-
-        object IEnumerator.Current => Current;
-
-        public bool MoveNext()
-        {
-            if (_current == null)
-                _current = _first;
-            else
-                _current = _current.Next;
-            return _current != null;
-        }
-
-        public void Reset()
-        {
-            _current = null;
-        }
-
-        //TODO: Idk if this matters to implement ngl...
-        public void Dispose() { }
+        return s;
     }
 }
