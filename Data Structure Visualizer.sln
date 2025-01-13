@@ -2,11 +2,15 @@
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Structure Visualizer", "Data Structure Visualizer.csproj", "{D5EB9F07-42C5-45DC-AB72-5CDA8974BB6F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{A3199E85-042C-4CD6-9622-9B179D463C88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "lib\Graph\Graph.csproj", "{826CEEFE-E021-4649-8C65-442B7349F85D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D5EB9F07-42C5-45DC-AB72-5CDA8974BB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +19,14 @@ Global
 		{D5EB9F07-42C5-45DC-AB72-5CDA8974BB6F}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{D5EB9F07-42C5-45DC-AB72-5CDA8974BB6F}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{D5EB9F07-42C5-45DC-AB72-5CDA8974BB6F}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{826CEEFE-E021-4649-8C65-442B7349F85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826CEEFE-E021-4649-8C65-442B7349F85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826CEEFE-E021-4649-8C65-442B7349F85D}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{826CEEFE-E021-4649-8C65-442B7349F85D}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{826CEEFE-E021-4649-8C65-442B7349F85D}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{826CEEFE-E021-4649-8C65-442B7349F85D}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{826CEEFE-E021-4649-8C65-442B7349F85D} = {A3199E85-042C-4CD6-9622-9B179D463C88}
 	EndGlobalSection
 EndGlobal
